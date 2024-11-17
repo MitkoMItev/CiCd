@@ -12,14 +12,14 @@ pipeline{
     stages{
         stage('Checkout'){
             steps{
-                checkout scm
+                git branch: 'main', utl: 'https://github.com/MitkoMItev/CiCd'
             }
         }
 
         stage("Install dependencies"){
             steps{
                 script{
-                    sh 'npm install'
+                    bat 'npm install'
                 }
             }
         }
@@ -27,9 +27,9 @@ pipeline{
         stage('Start app'){
             steps{
                 script{
-                    sh 'npm start &'
-                    sh 'wait-on http://localhost:8089'
-                    sh 'npm test'
+                    bat 'npm start &'
+                    bat 'wait-on http://localhost:8089'
+                    bat 'npm test'
                 }
             }
         }
