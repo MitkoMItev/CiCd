@@ -1,11 +1,11 @@
 pipeline{
     agent any
-    
+
 
     stages{
         stage('Checkout'){
             steps{
-                git branch: 'main', utl: 'https://github.com/MitkoMItev/CiCd'
+                git branch: 'main', url: 'https://github.com/MitkoMItev/CiCd'
             }
         }
 
